@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #17122d;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator-container {
+            width: 320px;
+            padding: 20px;
+            background: #2f3437;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .calculator {
+            margin-bottom: 16px;
+        }
+
+        #result {
+            width: 100%;
+            height: 70px;
+            padding: 0 16px;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            background: #665bfa;
+            color: #1f2933;
+            font-size: 32px;
+            font-weight: 600;
+            text-align: right;
+            box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .row_1,
+        .row_2,
+        .row_3,
+        .row_4,
+        .row_5 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            height: 58px;
+            border: none;
+            border-radius: 8px;
+            background: #4b5563;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #25292c;
+            transition: 0.15s ease;
+        }
+
+        button:hover {
+            background: #5f6b7a;
+        }
+
+        button:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #25292c;
+        }
+
+        button:nth-child(4) {
+            background: #d97706;
+        }
+
+        button:nth-child(4):hover {
+            background: #f59e0b;
+        }
+
+        .row_5 button:first-child {
+            background: #b91c1c;
+        }
+
+        .row_5 button:first-child:hover {
+            background: #dc2626;
+        }
+
+        .row_5 button:nth-child(2) {
+            background: #6b7280;
+        }
+
+        .row_5 button:nth-child(3) {
+            background: #0f766e;
+        }
+
+        .row_5 button:last-child {
+            background: #15803d;
+        }
+
+        .row_5 button:last-child:hover {
+            background: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <input type="text" id="result" readonly placeholder="0">
+        </div>
+
+        <div class="row_1">
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('+')">+</button>
+        </div>
+
+        <div class="row_2">
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('-')">-</button>
+        </div>
+
+        <div class="row_3">
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('*')">*</button>
+        </div>
+
+        <div class="row_4">
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('00')">00</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="appendToDisplay('/')">/</button>
+        </div>
+
+        <div class="row_5">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">X</button>
+            <button onclick="appendToDisplay('%')">%</button>
+            <button onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById("result");
+
+            if (display.value === "Error") {
+                display.value = "";
+            }
+
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("result").value = "";
+        }
+
+        function deleteLast() {
+            const display = document.getElementById("result");
+            display.value = display.value.slice(0, -1);
+        }
+
+        function calculateResult() {
+            const display = document.getElementById("result");
+
+            try {
+                if (display.value.trim() === "") {
+                    return;
+                }
+
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Error";
+            }
+        }
+    </script>
+</body>
+
+</html>

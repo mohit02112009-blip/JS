@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+</head>
+
+<body>
+    <h1>Hello</h1>
+    <script>
+        alert("Welcome to My World")
+    </script>
+
+    <button onclick="Show()">More</button>
+    <script>
+        function Show() {
+            alert("Button Clciked");
+        }
+    </script>
+
+    <h1 id="heading">Hello My World</h1>
+    <button onclick="changeText()" style="border-radius:10px; font-size: small; background-color: antiquewhite; font-family: Arial, Helvetica, sans-serif; border-radius: none;">Click</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("heading").innerHTML = "Welcome to JavaScript";
+        }
+    </script>
+
+     <img id="Bulb" img 
+    src="https://www.w3schools.com/js/pic_bulboff.gif" width="150">
+
+    <br><br>
+
+    <button onclick="BulbOn()" style="border-radius:10px; font-size: small; background-color: rgb(179, 246, 223); font-family: Arial, Helvetica, sans-serif; border-radius: none;">On</button>
+    <button onclick="Bulboff()" style="border-radius:10px; font-size: small; background-color: rgb(192, 244, 226); font-family: Arial, Helvetica, sans-serif; border-radius: none;">Off</button>
+
+    <script>
+
+        function BulbOn() {
+        document.getElementById("Bulb").src="https://www.w3schools.com/js/pic_bulbon.gif";
+        }
+
+        function Bulboff() {
+            document.getElementById("Bulb").src="https://www.w3schools.com/js/pic_bulboff.gif";
+        }
+    </script>
+</body>
+
+</html>

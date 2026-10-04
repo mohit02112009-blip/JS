@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Strings</title>
+</head>
+
+<body>
+    <script>
+        // Uppercase
+        // let name = "hasnain ali";
+        // console.log(name.toUpperCase());
+        // String length
+        // let course = "JavaScript";
+        // console.log(course.length);
+        // //Character Access
+        // let city = "Delhi"
+        // console.log(city[0]);
+        // console.log(city[4]);
+        // //StartWith()
+        // let str = "JavaScript";
+        // console.log(str.startsWith("Java"));
+        // // EndWith()
+        // console.log(str.endsWith("Script"));
+        // // Trim
+        // let username = "                   Hasnain  "
+        // console.log(username.trim());
+        // // Lowercase
+        // let email = "ADMIN@GMAIL.COM";
+        // console.log(email.toLowerCase());
+        // // Replace()
+        // let text = "I Love Java";
+        // console.log(text.replace("Java", "Python"));
+        // // Includes
+        // let address = "Laxmi Nagar Delhi";
+        // console.log(address.includes("Delhi"));
+        // // String length
+        // let sentence = "I Love Learning JavaScript";
+        // console.log(sentence.length);
+        // Character Access
+        // let email = "hasnain123@gmail.com";
+        // console.log(email.slice(0,10));
+        // Character Access
+        // let email = "hasnain123@gmail.com";
+        // console.log(email.slice(11,20));
+        // let mobile = "9876543210"
+        // console.log(mobile.slice(6,10));
+        // let productcode = "PRD98765";
+        // console.log(productcode.slice(0,2));
+        // // Index
+        // let email = "test@eamil.com";
+        // console.log(email.indexOf("@"));
+        // Spilt()
+        // let sentence = "HTML CSS JavaScript React";
+        // let words = sentence.split(" ");
+        // console.log(words);
+        // let skills = ["HTML","CSS","JS"];
+        // let words = skills.join(", ");
+        // console.log(words);
+        // let id = "25";
+        // let formatId = id.padStart(6, "0");
+        // console.log(formatId);
+        // let username = "Hasnain Ali";
+        // console.log(username.includes(" "));
+        // let str = "Java Java Python Java";
+        // let count = str.split("Java").length -1;
+        // console.log(count);
+        // let str = "JavaScript";
+        // let reversed = str.split("").reverse().join("");
+        // console.log(reversed);
+        // let str = "madam";
+        // let isPalindrome = str === str.split("").reverse().join("");
+        // console.log(isPalindrome);
+        // let str = "JavaScript";
+        // let count = str.match(/[aeiou]/gi).length;
+        // console.log(count);
+        // let str = "JavaScript";
+        // let count = str.match(/[^aeiou]/gi).length;
+        // console.log(count);
+        // let str = "hasnain ali khan";
+        // let result = str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+        // console.log(result);
+        // let str = "aabccddeeff";
+        // let result = [...new Set(str)].join("");
+        // console.log(result);
+        //     let str = "javascript";
+
+        //     let freq = {};
+        //     let maxChar = "";
+        //     let maxCount = 0;
+        //     for (let ch of str) {
+        //         freq[ch] = (freq[ch] || 0) + 1;
+        //         if (freq[ch] > maxCount) {
+        //             maxCount = freq[ch];
+        //             maxChar = ch;
+        //         }
+        //     }
+        //     console.log(maxChar);
+        // let str = "Hasnain12345";
+
+        // let count = str.match(/[0-9]/g).length;
+        // console.log(count);
+        //     let str = "Hasnain12345";
+
+        //     let count = str.match(/[a-z]/gi).length;
+        //     console.log(count);
+        //     let password = "Hasnain@123";
+        //     let valid = password.length >= 8 &&
+        //         /[A-Z]/.test(password) &&
+        //         /[a-z]/.test(password) &&
+        //         /[0-9]/.test(password) &&
+        //         /[^A-Za-z0-9]/.test(password);
+
+        //     console.log(valid ? "Valid Password" : "Invalid Password");
+        // let email = "hasnain@gmail.com";
+        // let [username, domain] = email.split("@");
+        // let masked = username.slice(0, 3) + "****@" + domain;
+        // console.log(masked);
+        // let card = "1234567812345678";
+
+        // let masked = "*".repeat(card.length - 4) + card.slice(-4);
+
+        // console.log(masked);
+        // let title = "JavaScript Complete Course";
+        // let slug = title.toLowerCase().replaceAll(" ", "-");
+        // console.log(slug);
+
+        // let text = "html css html js css html";
+        // let words = text.split(" ");
+        // let freq = {};
+        // for (let word of words) {
+        //     freq[word] = (freq[word] || 0) + 1;
+        // }
+        // console.log(freq);
+
+        // let sentence = "I Love JavaScript Programming";
+
+        // let words = sentence.split(" ");
+
+        // let longest = words.reduce((a, b) =>
+        //     a.length > b.length ? a : b
+        // );
+
+        // console.log(longest);
+
+        // let sentence = "I Love JavaScript Programming";
+
+        // let words = sentence.split(" ");
+
+        // let shortest = words.reduce((a, b) =>
+        //     a.length < b.length ? a : b
+        // );
+
+        // console.log(shortest);
+
+        // let sentence = "I Love JavaScript";
+
+        // let result = sentence
+        //     .split(" ")
+        //     .map(word => word.split("").reverse().join(""))
+        //     .join(" ");
+
+        // console.log(result);
+
+    //     let str = "javascript";
+
+    //     let freq = {};
+
+    //     for (let ch of str) {
+    //         freq[ch] = (freq[ch] || 0) + 1;
+    //     }
+
+    //     console.log(freq);
+
+    //     let str = "Hasnain";
+
+    //     let reversed = "";
+
+    //     for (let i = str.length - 1; i >= 0; i--) {
+    //         reversed += str[i];
+    //     }
+
+    //     console.log(reversed);
+ </script>
+</body>
+
+</html>

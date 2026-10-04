@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condition</title>
+</head>
+
+<body>
+    <script>
+
+        // Student Result System
+        // let marks = 90;
+        // if (marks >= 80){
+        //     console.log("Distiction");
+        // }
+        // else if  (marks >=60){
+        //     console.log("First division");
+        // }
+        // else if (marks >=40){
+        //     console.log("Pass");
+        // }
+
+        // else if (marks <=40){
+        //     console.log("Fail");
+        // }
+
+        // // Voting Eligibility
+        // let age = 17;
+        // if (age >= 18){
+        //     console.log("Eligible ")
+        // }
+        // else if (age < 18){
+        //     console.log("Not Eligible")
+        // }
+
+        // Driving License
+        // let age = 20;
+        // if ( age >= 18){
+        //     console.log("License Allowed")
+        // }
+        // else if ( age < 18){
+        //     console.log("License Not Allowed")
+        // }
+
+        // //Employee Bonus
+
+        // let Salary = 70000;
+        // if ( Salary >= 50000){
+        //     console.log("Bonus Eligible")
+        // }
+        // else if (Salary <50000){
+        //     console.log("No Bonus")
+        // }
+
+        // // Attendance Status
+
+        // let attendance = 80;
+        // if ( attendance >=75){
+        //     console.log("Exam Eligible")
+        // }
+        // else if (attenance < 75){
+        //     console.log("Not Eligible")
+        // }
+
+        // Scholarship System
+
+        // let marks = 78;
+        // if (marks >= 90){
+        //     console.log("Full Scholarship")
+        // }
+        // else if (marks >= 75){
+        //     console.log("Partial Scholarship")
+        // }
+
+        // else if (marks >= 60){
+        //     console.log("Merit list")
+        // }
+
+        // else if (marks < 60){
+        //     console.log("Not Eligible")
+        // }
+
+        // Employee Performance Rating
+
+        // let score = 86;
+        // if (score >= 90){
+        //     console.log("Excellent")
+        // }
+
+        // else if (score >= 75){
+        //    console.log("Good")
+        // }
+
+        // else if (score >= 60){
+        //     console.log("Average")
+        // }
+
+        // else if (score < 60){
+        //     console.log("Poor")
+        // }
+
+        // // Product Stock Status
+        // let stock = 70;
+
+        // if (stock > 100){
+        //     console.log("High Stock")
+        // }
+        // else if (stock > 20){
+        //     console.log("Available")
+        // }
+        // else if (stock > 0){
+        //     console.log("Low Stock")
+        // }
+        // else if (stock < 0){
+        //     console.log("Regular")
+        // }
+
+        //Customer Membership
+        // let Purchase = 200000;
+        // if (Purchase >= 100000){
+        //     console.log("Platinum")
+        // }
+        // else if (Purchase >= 50000){
+        //     console.log("Gold")
+        // }
+        // else if (Purchase >= 20000){
+        //     console.log("Silver")
+        // }
+        // else if (Purchase < 20000){
+        //     console.log("Regular")
+        // }
+
+        // let marks = 68;
+
+        // if (marks >= 90){
+        //     console.log("A+")
+        // }
+        // else if (marks >= 80){
+        //     console.log("A")
+        // }
+        // else if (marks >= 70){
+        //     console.log("B")
+        // }
+        // else if (marks >= 60){
+        //     console.log("C")
+        // }
+        // else if (marks < 60){
+        //     console.log("Fail")
+        // }
+
+        // Income Tax Slab
+        // let income = 1400000;
+
+        // if (income > 1500000){
+        //     console.log("30% Tax")
+        // }
+        // else if (income > 1000000){
+        //     console.log("20% Tax")
+        // }
+        // else if (income > 500000){
+        //     console.log("10% Tax")
+        // }
+        // else if (income < 500000){
+        //     console.log("No Tax")
+        // }
+
+        // let Salary = 450000;
+        // let CIBIL = 755;
+
+        // if (Salary >= 50000, CIBIL >= 750){
+        //     console.log("Approved")
+        // }
+        // else if (Salary >= 30000, CIBIL >= 650){
+        //     console.log("Review Required")
+        // }
+
+        // else if (Salary < 30000, CIBIL < 650){
+        //     console.log("Rejected")
+        // }
+
+        // // Hotel Room Pricing
+        // let season = "Normal";
+
+        // if (season = "Peak"){
+        //     console.log("5000")
+        // }
+        // else if (season = "Normal"){
+        //     console.log("3000")
+        // }
+        // else if (season = "OffSeason"){
+        //     console.log("2000");
+        // }
+        // else if (season = "NoSeason"){
+        //     console.log("Invalid Season")
+        // }
+
+        // // Delivery Charges
+        // let order = 700;
+
+        // if (order >=1000){
+        //     console.log("Free Delivery")
+        // }
+        // else if (order >= 500){
+        //     console.log("50 Delivery")
+        // }
+        // else if (order < 500){
+        //     console.log("100 Delivery")
+        // }
+
+        // //Employee Promotion System
+        // let Experience = 7;
+        // if (Experience >=10){
+        //     console.log("Senior Manager")
+        // }
+        // else if (Experience >=5){
+        //     console.log("Manager")
+        // }
+        // else if (Experience >= 2){
+        //     console.log("Team Leader")
+        // }
+        // else if (Experience < 2){
+        //     console.log("Executive")
+        // }
+
+        // Real Office / MIS Level Topics
+
+        // Sales Target Achievement
+        // let Achievement = '90%';
+
+        // if (Achievement >='120%'){
+        //     console.log("Superstar")
+        // }
+        // else if (Achievement >='100%'){
+        //     console.log("Achieved")
+        // }
+        // else if (Achievement >='80%'){
+        //     console.log("Near Target")
+        // }
+        // else if (Achievement < '80%'){
+        //     console.log("Underperforming")
+        // }
+
+        // let stock = 150;
+
+        // if (stock >= 500){
+        //     console.log("Overstock")
+        // }
+        // else if (stock >= 100){
+        //     console.log("Normal")
+        // }
+        // else if (stock >= 20){
+        //     console.log("Reorder Soon")
+        // }
+        // else if (stock < 20){
+        //     console.log("Urgent Purchase")
+        // }
+
+        // let attendance = 86;
+
+        // if (attendance >= 95){
+        //     console.log("Perfect")
+        // }
+
+        // else if (attendance >= 85){
+        //     console.log("Good")
+        // }
+        // else if (attendance >= 75){
+        //     console.log("Average")
+        // }
+        // else if (attendance < 75){
+        //     console.log("Warning")
+        // }
+
+        // let score = 750;
+
+        // if (score >= 800){
+        //     console.log("Low Risk")
+        // }
+        // else if (score >= 700){
+        //     console.log("Medium Rsik")
+        // }
+        // else if (score >= 600){
+        //     console.log("High Risk")
+        // }
+        // else if (score < 600){
+        //     console.log("Very High Risk")
+        // }
+
+        // let days = 15;
+
+        // if (days <= 7){
+        //     console.log("Full Refund")
+        // }
+        // else if (days <= 15){
+        //     console.log("Partial Refund")
+        // }
+        // else if (days <=30){
+        //     console.log("Store Credit")
+        // }
+        // else if (days < 30){
+        //     console.log("No Return Accepted")
+        // }
+
+        // let studentID = 101;
+        // let name = "Kunal";
+        // let marks = 90;
+        // let attendance = 225;
+        // let feesStatus = "Deposited";
+
+        // if (marks >= 90) {
+        //     console.log("Grade: A+")
+        // }
+        // else if (marks >= 75) {
+        //     console.log("Grade: A")
+        // }
+
+        // else if (marks >= 60) {
+        //     console.log("Grade: B")
+        // }
+
+        // else if (marks >= 35) {
+        //     console.log("Grade: C")
+        // }
+        // else if (marks < 35) {
+        //     console.log("Grade: D")
+        // }
+
+        // if (marks >= 35) {
+        //     console.log("Result: Pass")
+        // }
+        // else if (marks < 35) {
+        //     console.log("Result: Fail")
+        // }
+
+        // if (marks >= 90, attendance >=220){
+        //     console.log("Scholarship Status: Eligible")
+        // }
+
+        // else if (marks < 90, attendance <220){
+        //     console.log("Scholarship Status: Not Eligible")
+        // }
+
+        // if (feesStatus = "deposited"){
+        //     console.log("Exam Eligibility: Yes")
+        // }
+        // else if (feesStaus = "Not Deposited"){
+        //     console.log("Exam Eligibility: No")
+        // }
+        
+    </script> 
+</body>
+
+</html>

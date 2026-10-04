@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #9d18e8;
+            font-family: Arial, sans-serif;
+        }
+
+        .quiz_container {
+            width: 560px;
+            max-width: 92%;
+            padding: 42px 48px;
+            background: #4b0b68;
+            border: 3px solid #d8b4fe;
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+        }
+
+        .quiz_header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .quiz_header h2 {
+            color: #ffffff;
+            font-size: 68px;
+            font-family: Georgia, serif;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        #progress {
+            display: none;
+        }
+
+        #question {
+            margin-bottom: 28px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            gap: 18px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 16px;
+            border: 2px solid #ffffff;
+            border-radius: 4px;
+            background: transparent;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .option-btn.correct {
+            border-color: #22c55e;
+            background: #99f6a4;
+            color: #166534;
+        }
+
+        .option-btn.correct::after {
+            content: "✔";
+            float: right;
+            color: #16a34a;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .option-btn.wrong {
+            border-color: #ef4444;
+            background: #fca5a5;
+            color: #991b1b;
+        }
+
+        .option-btn.wrong::after {
+            content: "✖";
+            float: right;
+            color: #dc2626;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .quiz_footer {
+            margin-top: 36px;
+            padding-top: 18px;
+            border-top: 2px dashed #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #scoreText {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        #nextBtn,
+        #restartBtn {
+            padding: 12px 22px;
+            border: 2px solid #ffffff;
+            border-radius: 9px;
+            background: #a855f7;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        #nextBtn:hover,
+        #restartBtn:hover {
+            background: #c084fc;
+        }
+
+        #nextBtn:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .result_box {
+            text-align: center;
+        }
+
+        .result_box h2 {
+            margin-bottom: 18px;
+            color: #ffffff;
+            font-size: 42px;
+            font-family: Georgia, serif;
+        }
+
+        .result_box p {
+            margin-bottom: 28px;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="quiz_container">
+        <div class="quiz_header">
+            <h2>Quiz</h2>
+            <span id="progress">1 / 10</span>
+        </div>
+
+        <h3 id="question"></h3>
+
+        <div class="options">
+            <button class="option-btn" onclick="selectAnswer('A')" id="optionA"></button>
+            <button class="option-btn" onclick="selectAnswer('B')" id="optionB"></button>
+            <button class="option-btn" onclick="selectAnswer('C')" id="optionC"></button>
+            <button class="option-btn" onclick="selectAnswer('D')" id="optionD"></button>
+        </div>
+
+        <div class="quiz_footer">
+            <p id="scoreText">Score: 0</p>
+            <button onclick="nextQuestion()" id="nextBtn" enable>Next</button>
+        </div>
+    </section>
+
+    <script>
+        const quizData = [
+             {
+                question: "What is the capital of India?",
+                options: {
+                    A: "Mumbai",
+                    B: "Delhi",
+                    C: "Kolkata",
+                    D: "Chennai"
+                },
+                answer: "B"
+            },
+            {
+                question: "Which is the famous wonder in India?",
+                options: {
+                    A: "Qutub Minar",
+                    B: "Lotus Temple",
+                    C: "Gateway of India",
+                    D: "Taj Mahal"
+                },
+                answer: "D"
+            },
+            {
+                question: "Which language is used to structure a web page?",
+                options: {
+                    A: "HTML",
+                    B: "CSS",
+                    C: "JavaScript",
+                    D: "Python"
+                },
+                answer: "A"
+            },
+            {
+                question: "Which language is used to style a web page?",
+                options: {
+                    A: "HTML",
+                    B: "CSS",
+                    C: "Java",
+                    D: "PHP"
+                },
+                answer: "B"
+            },
+            {
+                question: "Which language is used to add logic to a web page?",
+                options: {
+                    A: "CSS",
+                    B: "HTML",
+                    C: "JavaScript",
+                    D: "SQL"
+                },
+                answer: "C"
+            },
+            {
+                question: "Which tag is used to create a paragraph in HTML?",
+                options: {
+                    A: "<h1>",
+                    B: "<p>",
+                    C: "<div>",
+                    D: "<span>"
+                },
+                answer: "B"
+            },
+            {
+                question: "Which CSS property changes text color?",
+                options: {
+                    A: "font-size",
+                    B: "background",
+                    C: "color",
+                    D: "border"
+                },
+                answer: "C"
+            },
+            {
+                question: "Which symbol is used for an ID selector in CSS?",
+                options: {
+                    A: ".",
+                    B: "#",
+                    C: "*",
+                    D: "&"
+                },
+                answer: "B"
+            },
+            {
+                question: "Which method is used to show output in the browser console?",
+                options: {
+                    A: "console.log()",
+                    B: "print()",
+                    C: "display()",
+                    D: "show()"
+                },
+                answer: "A"
+            },
+            {
+                question: "Which HTML tag is used to connect JavaScript?",
+                options: {
+                    A: "<style>",
+                    B: "<link>",
+                    C: "<script>",
+                    D: "<js>"
+                },
+                answer: "C"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let answered = false;
+
+        const question = document.getElementById("question");
+        const optionA = document.getElementById("optionA");
+        const optionB = document.getElementById("optionB");
+        const optionC = document.getElementById("optionC");
+        const optionD = document.getElementById("optionD");
+        const progress = document.getElementById("progress");
+        const scoreText = document.getElementById("scoreText");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function loadQuestion() {
+            const currentQuiz = quizData[currentQuestion];
+
+            question.innerText = currentQuiz.question;
+            optionA.innerText = "A. " + currentQuiz.options.A;
+            optionB.innerText = "B. " + currentQuiz.options.B;
+            optionC.innerText = "C. " + currentQuiz.options.C;
+            optionD.innerText = "D. " + currentQuiz.options.D;
+
+            progress.innerText = `${currentQuestion + 1} / ${quizData.length}`;
+            scoreText.innerText = `Score: ${score}`;
+
+            selectedAnswer = null;
+            answered = false;
+            nextBtn.enabled = true;
+
+            clearOptions();
+
+            if (currentQuestion === quizData.length - 1) {
+                nextBtn.innerText = "Finish";
+            } else {
+                nextBtn.innerText = "Next";
+            }
+        }
+
+        function selectAnswer(answer) {
+            if (answered) {
+                return;
+            }
+
+            selectedAnswer = answer;
+            answered = true;
+            nextBtn.enabled = false;
+
+            const correctAnswer = quizData[currentQuestion].answer;
+            const selectedButton = document.getElementById("option" + answer);
+            const correctButton = document.getElementById("option" + correctAnswer);
+
+            if (answer === correctAnswer) {
+                score++;
+                selectedButton.classList.add("correct");
+            } else {
+                selectedButton.classList.add("wrong");
+                correctButton.classList.add("correct");
+            }
+
+            scoreText.innerText = `Score: ${score}`;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showFinalResult();
+            }
+        }
+
+        function clearOptions() {
+            const optionButtons = document.querySelectorAll(".option-btn");
+
+            optionButtons.forEach(function (button) {
+                button.classList.remove("selected", "correct", "wrong");
+            });
+        }
+
+        function showFinalResult() {
+            document.querySelector(".quiz_container").innerHTML = `
+                <div class="result_box">
+                    <h2>Quiz Completed!</h2>
+                    <p>Your final score is ${score} out of ${quizData.length}</p>
+                    <button id="restartBtn" onclick="restartQuiz()">Restart Quiz</button>
+                </div>
+            `;
+        }
+
+        function restartQuiz() {
+            location.reload();
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+
+</html>

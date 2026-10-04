@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .atm-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            text-align: center;
+            width: 100px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h2>Withdraw Money from ATM Card</h2><br>
+    <div class="ATM Withdraw Amount"></div>
+    <input type="number" id="amount">
+    <button onclick="withdrawMoney()">Withdraw</button><br>
+    <p id="result"></p>
+    <script>
+        let balance = 5000;
+        function withdrawMoney() {
+            let amount = Number(document.getElementById("amount").value)
+
+            if (amount <= 0) {
+                document.getElementById("result").innerhtml = "Enter a valid amount!";
+            }
+
+            if (amount > balance) {
+                document.getElementById("result").innerhtml = "Insufficient Balance!"
+            }
+
+            else {
+                balance -= amount;
+                document.getElementById("result").innerHTML = "Withdrawal Successful! Remaining Balance: ₹" + balance;
+            }
+        }
+    </script>
+</body>
+
+</html>
